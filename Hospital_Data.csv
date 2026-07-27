@@ -1,0 +1,11 @@
+Patient ID,Visit Date,Department,Doctor,Treatment,Patients,Billing Amount,Discount
+P1001,01-Feb-26,Cardiology,Dr. Mehta,ECG,5,25000,2000
+P1002,02-Feb-26,Orthopedics,Dr. Rao,X-Ray,8,16000,1200
+P1003,03-Feb-26,Neurology,Dr. Shah,MRI Scan,3,45000,5000
+P1004,04-Feb-26,Pediatrics,Dr. Patel,Vaccination,12,18000,1500
+P1005,05-Feb-26,Cardiology,Dr. Mehta,Consultation,10,20000,1000
+P1006,06-Feb-26,Orthopedics,Dr. Rao,Surgery,2,80000,7000
+P1007,07-Feb-26,Neurology,Dr. Shah,CT Scan,4,36000,3000
+P1008,08-Feb-26,Pediatrics,Dr. Patel,Consultation,15,22500,1800
+P1009,09-Feb-26,Cardiology,Dr. Mehta,Angiography,2,90000,8000
+P1010,10-Feb-26,Orthopedics,Dr. Rao,Physiotherapy,9,27000,2500

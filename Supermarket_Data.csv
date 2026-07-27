@@ -1,0 +1,11 @@
+Bill ID,Bill Date,City,Category,Product,Quantity,Sales,Cost
+B1001,01-Mar-26,Mumbai,Beverages,Tea,20,6000,4200
+B1002,01-Mar-26,Delhi,Snacks,Chips,35,3500,2200
+B1003,02-Mar-26,Bengaluru,Dairy,Milk,50,4000,3000
+B1004,03-Mar-26,Chennai,Fruits,Apple,30,4500,3200
+B1005,04-Mar-26,Mumbai,Bakery,Bread,40,3200,2000
+B1006,05-Mar-26,Delhi,Beverages,Coffee,18,7200,4800
+B1007,06-Mar-26,Bengaluru,Snacks,Biscuits,28,2800,1800
+B1008,07-Mar-26,Chennai,Dairy,Cheese,15,5250,3600
+B1009,08-Mar-26,Mumbai,Fruits,Banana,45,2700,1800
+B1010,09-Mar-26,Delhi,Bakery,Cake,12,6000,4100
