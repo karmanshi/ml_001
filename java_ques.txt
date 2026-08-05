@@ -1,0 +1,209 @@
+1. Ride.java (Abstract Class)
+abstract class Ride {
+    protected int rideId;
+    protected String customerName;
+    protected String pickupLocation;
+    protected String dropLocation;
+    protected double distance;
+
+    public Ride(int rideId, String customerName, String pickupLocation,
+                String dropLocation, double distance) {
+        this.rideId = rideId;
+        this.customerName = customerName;
+        this.pickupLocation = pickupLocation;
+        this.dropLocation = dropLocation;
+        this.distance = distance;
+    }
+
+    public void displayRideDetails() {
+        System.out.println("\n----- Ride Details -----");
+        System.out.println("Ride ID : " + rideId);
+        System.out.println("Customer Name : " + customerName);
+        System.out.println("Pickup Location : " + pickupLocation);
+        System.out.println("Drop Location : " + dropLocation);
+        System.out.println("Distance : " + distance + " km");
+    }
+
+    abstract double calculateFare();
+}
+
+2. RideService.java (Interface)
+interface RideService {
+
+    double applyDiscount(double fare, double distance);
+
+}
+3. MiniRide.java
+class MiniRide extends Ride implements RideService {
+
+    private final double BASE_FARE = 50;
+    private final double COST_PER_KM = 10;
+
+    public MiniRide(int rideId, String customerName,
+                    String pickupLocation, String dropLocation,
+                    double distance) {
+        super(rideId, customerName, pickupLocation, dropLocation, distance);
+    }
+
+    @Override
+    public double calculateFare() {
+        return BASE_FARE + (distance * COST_PER_KM);
+    }
+
+    @Override
+    public double applyDiscount(double fare, double distance) {
+
+        if (distance < 5)
+            return 0;
+        else if (distance <= 10)
+            return 20;
+        else if (distance <= 20)
+            return 50;
+        else
+            return 100;
+    }
+}
+4. LuxuryRide.java
+
+class LuxuryRide extends Ride implements RideService {
+
+    private final double BASE_FARE = 100;
+    private final double COST_PER_KM = 20;
+
+    public LuxuryRide(int rideId, String customerName,
+                      String pickupLocation, String dropLocation,
+                      double distance) {
+        super(rideId, customerName, pickupLocation, dropLocation, distance);
+    }
+
+    @Override
+    public double calculateFare() {
+        return BASE_FARE + (distance * COST_PER_KM);
+    }
+
+    @Override
+    public double applyDiscount(double fare, double distance) {
+
+        if (distance < 5)
+            return 0;
+        else if (distance <= 10)
+            return 20;
+        else if (distance <= 20)
+            return 50;
+        else
+            return 100;
+    }
+}
+
+5. RideBookingApp.java (Main Class)
+
+
+import java.util.Scanner;
+
+public class RideBookingApp {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Ride ID: ");
+        int rideId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Customer Name: ");
+        String customerName = sc.nextLine();
+
+        System.out.print("Enter Pickup Location: ");
+        String pickup = sc.nextLine();
+
+        System.out.print("Enter Drop Location: ");
+        String drop = sc.nextLine();
+
+        System.out.print("Enter Distance (km): ");
+        double distance = sc.nextDouble();
+
+        System.out.println("\nChoose Ride Type");
+        System.out.println("1. Mini Ride");
+        System.out.println("2. Luxury Ride");
+        System.out.print("Enter Choice: ");
+        int choice = sc.nextInt();
+
+        Ride ride = null;
+        RideService service = null;
+
+        switch (choice) {
+
+            case 1:
+                ride = new MiniRide(rideId, customerName,
+                        pickup, drop, distance);
+                service = (RideService) ride;
+                break;
+
+            case 2:
+                ride = new LuxuryRide(rideId, customerName,
+                        pickup, drop, distance);
+                service = (RideService) ride;
+                break;
+
+            default:
+                System.out.println("Invalid Choice!");
+                System.exit(0);
+        }
+
+        ride.displayRideDetails();
+
+        double totalFare = ride.calculateFare();
+        double discount = service.applyDiscount(totalFare, distance);
+        double finalFare = totalFare - discount;
+
+        System.out.println("\n----- Fare Details -----");
+        System.out.println("Total Fare : ₹" + totalFare);
+        System.out.println("Discount Applied : ₹" + discount);
+        System.out.println("Final Fare : ₹" + finalFare);
+
+        sc.close();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
